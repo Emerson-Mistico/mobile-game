@@ -4,7 +4,7 @@ public class TouchController : MonoBehaviour
 {
 
     public Vector2 pastPosition;
-    public float velocity = 1f;   
+    public float velocity = 3.5f;   
 
     void Update()
     {
@@ -17,9 +17,9 @@ public class TouchController : MonoBehaviour
 
     }
 
-    public void Move(float speed)
+    public void Move(float moveSpeed)
     {
-        transform.position += speed * Time.deltaTime * velocity * Vector3.right;
+        transform.position += moveSpeed * Time.deltaTime * velocity * Vector3.right;
     }
 
 }
