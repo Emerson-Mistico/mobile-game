@@ -17,6 +17,7 @@ public class PlayerController : Singleton<PlayerController>
     public string messageStartGame = "Are You Ready?"; // Money, money, money, mooooney!
     public GameObject startGameScreen;
     public GameObject endGameScreen;
+    public GameObject hudShowCoins;
 
     public TextMeshPro uiTextPowerUp;
 
@@ -70,6 +71,7 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = true;
         SetPowerUpText("");
         startGameScreen.SetActive(false);
+        hudShowCoins.SetActive(true);
     }
     private void EndGame()
     {
