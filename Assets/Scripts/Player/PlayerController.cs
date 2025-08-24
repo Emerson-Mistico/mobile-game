@@ -10,11 +10,12 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Player Setup")]
     public float fowardSpeed = 3.5f;
     public string tagToCheckBarrier = "Barrier";
-    public string tagTocheckEndLine = "EndLine";
+    public string tagTocheckEndLine = "EndLine";    
+
     public bool invencible = false;
 
     [Header("Screen")]
-    public string messageStartGame = "Are You Ready?"; // Money, money, money, mooooney!
+    public string messageStartGame = "Are You Ready?";
     public GameObject startGameScreen;
     public GameObject endGameScreen;
     public GameObject hudShowCoins;
@@ -126,7 +127,6 @@ public class PlayerController : Singleton<PlayerController>
     {
         coinCollector.transform.localScale = Vector3.one * distanceSize;
     }
-
     #endregion
 
 }
