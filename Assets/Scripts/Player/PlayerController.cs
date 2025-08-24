@@ -59,21 +59,17 @@ public class PlayerController : Singleton<PlayerController>
         transform.position = Vector3.Lerp(transform.position, _position, lerpSpeed * Time.deltaTime);
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
 
-    }
+    }    
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colision detected: " + other.transform.tag);
+        Debug.Log("Trigger detected: " + other.transform.tag);
 
         if (other.transform.tag == tagTocheckEndLine)
         {
             EndGame();
         }
-
-        if (other.transform.tag == tagToCheckBarrier && !invencible)
-        {            
-            EndGame();            
-        }
+        
     }    
 
     #region UTILS

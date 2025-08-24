@@ -73,7 +73,7 @@ MonoBehaviour:
   graphicItem: {fileID: 3584062752746384444}
   collect: 0
   lerp: 5
-  minDistance: 1
+  minDistance: 2
 --- !u!1 &9014870411547293782
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class ItemCollectableCoin : ItemCollectableBase
 
     public bool collect = false;
     public float lerp = 5f;
-    public float minDistance = 1f;
+    public float minDistance = 2f;
     protected override void OnCollected()
     {
 
