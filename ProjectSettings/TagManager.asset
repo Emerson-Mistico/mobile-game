@@ -8,6 +8,10 @@ TagManager:
   - EndLine
   - Coin
   - PowerUP Speed
+  - PowerUP Invencible
+  - PowerUP Height
+  - Power UP Collect Coins
+  - Coin Collector
   layers:
   - Default
   - TransparentFX

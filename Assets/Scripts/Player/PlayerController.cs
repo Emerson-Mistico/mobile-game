@@ -25,6 +25,9 @@ public class PlayerController : Singleton<PlayerController>
     public Transform target;
     public float lerpSpeed = 1.0f;
 
+    [Header("Coin Setup")]
+    public GameObject coinCollector;
+
     // privates
     private Vector3 _position;
     private bool _canRun;
@@ -59,7 +62,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("Colision detected: " + other.transform.tag);
+        Debug.Log("Colision detected: " + other.transform.tag);
 
         if (other.transform.tag == tagTocheckEndLine)
         {
@@ -115,10 +118,13 @@ public class PlayerController : Singleton<PlayerController>
         transform.DOMoveY(_startPosition.y + amountToHigh, animationDuration).SetEase(ease);
         Invoke(nameof(ResetHeight), timePowerUp);
     }
-
     public void ResetHeight(float animationDuration)
     {
         transform.DOMoveY(_startPosition.y, animationDuration);
+    }
+    public void ChangeCoinCollectorSize(float distanceSize)
+    {
+        coinCollector.transform.localScale = Vector3.one * distanceSize;
     }
 
     #endregion

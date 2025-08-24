@@ -67,12 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a251a72f84f29345ac5f85d89f47429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCompare: Player
+  tagToCompare: Coin Collector
   tagCoins: Coin
   itemValue: 1
   graphicItem: {fileID: 3584062752746384444}
-  particle: {fileID: 0}
-  soundToUse: {fileID: 0}
   collect: 0
   lerp: 5
   minDistance: 1
