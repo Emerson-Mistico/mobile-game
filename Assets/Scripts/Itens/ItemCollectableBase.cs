@@ -12,11 +12,6 @@ public class ItemCollectableBase : MonoBehaviour
        
     public GameObject graphicItem;
 
-    public ParticleSystem particle;
-
-    [Header("Sounds")]
-    public AudioSource soundToUse;
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(tagToCompare))
@@ -29,36 +24,19 @@ public class ItemCollectableBase : MonoBehaviour
     {     
 
         if(!transform.CompareTag(tagCoins))
-        {            
-            Destroy(gameObject);
-        }            
-        
-        OnCollected();
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Object! BUMM!");
+        } else
+        {
+            OnCollected();
+        } 
+
     }
     
     protected virtual void OnCollected()
     {
-        
-        if (particle != null)
-        {
-            particle.Play();
-            StartCoroutine(WaitAndDeactivate(particle.main.duration));
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-
-        if (soundToUse != null) { 
-            soundToUse.Play(); 
-        }        
-
-    }
-        
-    private IEnumerator WaitAndDeactivate(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        gameObject.SetActive(false);
+        // Debug.Log("Entrou no -> OnCollected");        
     }
     
 }

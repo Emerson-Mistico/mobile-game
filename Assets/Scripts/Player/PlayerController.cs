@@ -59,16 +59,16 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnTriggerEnter(Collider other)
     {
+        // Debug.Log("Colision detected: " + other.transform.tag);
+
         if (other.transform.tag == tagTocheckEndLine)
         {
-            Debug.Log("Endline Check");
             EndGame();
         }
 
-        if (other.transform.tag == tagToCheckBarrier)
-        {
-            Debug.Log("Endline Check");
-            EndGame();
+        if (other.transform.tag == tagToCheckBarrier && !invencible)
+        {            
+            EndGame();            
         }
     }    
 
@@ -98,6 +98,29 @@ public class PlayerController : Singleton<PlayerController>
     {
         uiTextPowerUp.text = textToShow;
     }
+    #endregion
+
+    #region POWER UPS 
+        
+    public void PowerUpSpeedUp(float amountSpeed)
+    {
+        _currentSpeed = amountSpeed;
+    }
+    public void SetInvencible(bool canDie)
+    {
+        invencible = canDie;
+    }
+    public void ChangeHeight(float amountToHigh, float timePowerUp, float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y + amountToHigh, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), timePowerUp);
+    }
+
+    public void ResetHeight(float animationDuration)
+    {
+        transform.DOMoveY(_startPosition.y, animationDuration);
+    }
+
     #endregion
 
 }
