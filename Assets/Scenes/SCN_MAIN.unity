@@ -2144,8 +2144,8 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2189,7 +2189,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8537,6 +8537,10 @@ PrefabInstance:
     - target: {fileID: 1029670064472710413, guid: c73923e5b702d0d4b9193109b4a81124, type: 3}
       propertyPath: m_Name
       value: PFB_Barrier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470403226584704696, guid: c73923e5b702d0d4b9193109b4a81124, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7849646136471500288, guid: c73923e5b702d0d4b9193109b4a81124, type: 3}
       propertyPath: m_LocalPosition.x

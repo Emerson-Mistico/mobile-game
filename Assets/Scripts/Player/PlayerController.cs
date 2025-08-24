@@ -56,6 +56,7 @@ public class PlayerController : Singleton<PlayerController>
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == tagTocheckEndLine)
@@ -63,7 +64,13 @@ public class PlayerController : Singleton<PlayerController>
             Debug.Log("Endline Check");
             EndGame();
         }
-    }
+
+        if (other.transform.tag == tagToCheckBarrier)
+        {
+            Debug.Log("Endline Check");
+            EndGame();
+        }
+    }    
 
     #region UTILS
     public void StartToRun()
