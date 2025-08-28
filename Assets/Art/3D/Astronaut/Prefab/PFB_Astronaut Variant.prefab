@@ -154,7 +154,10 @@ MonoBehaviour:
   animatorSetups:
   - type: 0
     triggerName: idle
+    speedAnimation: 1
   - type: 1
     triggerName: run
+    speedAnimation: 1
   - type: 2
     triggerName: dead
+    speedAnimation: 1.5

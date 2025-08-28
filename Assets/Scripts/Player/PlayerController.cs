@@ -10,7 +10,10 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Player Setup")]
     public float fowardSpeed = 3.5f;
     public string tagToCheckBarrier = "Barrier";
-    public string tagTocheckEndLine = "EndLine";    
+    public string tagTocheckEndLine = "EndLine";
+
+    [Header("Animation Manager")]
+    public AnimatorManager animatorManager;
 
     public bool invencible = false;
 
@@ -34,6 +37,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool _canRun;
     private float _currentSpeed;
     private Vector3 _startPosition;
+    private float _baseSpeedAnimation = 7;
 
     void Start()
     {
@@ -65,7 +69,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!invencible && collision.gameObject.tag == tagToCheckBarrier) 
         {
-            EndGame();
+            MoveBack();
+            EndGame(AnimatorManager.AnimationType.DEAD);
         }
     }
 
@@ -75,22 +80,27 @@ public class PlayerController : Singleton<PlayerController>
         if (other.transform.tag == tagTocheckEndLine)
         {
             EndGame();
-        }
-        
-    }    
-
+        }      
+    }
     #region UTILS
+
+    private void MoveBack() {
+        transform.DOMoveZ(-2f, 0.3f).SetRelative();
+    }
+
     public void StartToRun()
     {
         _canRun = true;
         SetPowerUpText("");
         startGameScreen.SetActive(false);
         hudShowCoins.SetActive(true);
+        animatorManager.PlayAnimation(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedAnimation);
     }
-    private void EndGame()
+    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
     {
         _canRun = false;
         endGameScreen.SetActive(true);
+        animatorManager.PlayAnimation(animationType);
     }
     public void QuitGameNow()
     {

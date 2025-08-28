@@ -4519,6 +4519,7 @@ MonoBehaviour:
   fowardSpeed: 8.5
   tagToCheckBarrier: Barrier
   tagTocheckEndLine: EndLine
+  animatorManager: {fileID: 2144430184}
   invencible: 0
   messageStartGame: Are You Ready?
   startGameScreen: {fileID: 765501515}
@@ -15404,6 +15405,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 264722016171296993, guid: 3d465914c175aca45a4ec37a817d1b1b, type: 3}
   m_PrefabInstance: {fileID: 2140317360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144430184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4290749514272228603, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 1611199456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de31b3f5f01fc1c48ad6b5872d272735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

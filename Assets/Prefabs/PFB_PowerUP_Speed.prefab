@@ -72,7 +72,7 @@ MonoBehaviour:
   itemValue: 1
   graphicItem: {fileID: 0}
   powerUpDuration: 10
-  amountToSpeed: 15
+  amountToSpeed: 17
   messagePowerUP: 'You have: Speed!'
 --- !u!1 &4374812397909712663
 GameObject:
