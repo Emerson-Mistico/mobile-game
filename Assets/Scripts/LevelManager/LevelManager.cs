@@ -71,13 +71,13 @@ public class LevelManager : MonoBehaviour
         }
 
         _spawnedPieces.Add(spawnedPiece);
-        Debug.Log(" -> Chegou aqui. Há " + _spawnedPieces.Count + " peças criadas.");
+        // Debug.Log(" -> Chegou aqui. Há " + _spawnedPieces.Count + " peças criadas.");
 
     }
 
     private void CleanSpawnedPieces()
     {
-        // Debug.Log(" -> chegou aqui. Há " + _spawnedPieces.Count + " peças criadas.");
+        Debug.Log(" -> chegou aqui. Há " + _spawnedPieces.Count + " peças para DESTRUIR.");
         for (int i = _spawnedPieces.Count -1;  i >= 0; i--)
         {
             Debug.Log("Objeto para destruir: " + _spawnedPieces[i].gameObject.tag);
@@ -88,7 +88,10 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator CreateLevelPiecesCoroutine()
     {
-        CleanSpawnedPieces();
+        if (_spawnedPieces.Count > 0)
+        {
+            CleanSpawnedPieces();
+        }        
 
         for (int i = 0; i < piecesNumberStart; i++)
         {
