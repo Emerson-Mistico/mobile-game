@@ -13,12 +13,12 @@ public class PowerUpBase : ItemCollectableBase
     }
     protected virtual void StartPowerUp()
     {
-        Debug.Log("Start Power Up for " + powerUpDuration + " seconds.");
+        // Debug.Log("Start Power Up for " + powerUpDuration + " seconds.");
         Invoke(nameof(EndPowerUp), powerUpDuration);
     }
     protected virtual void EndPowerUp()
     {
-        Debug.Log("End Power Up: NOW!");
+        // Debug.Log("End Power Up: NOW!");
         Destroy(base.gameObject);
     }
 
