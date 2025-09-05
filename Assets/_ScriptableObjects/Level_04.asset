@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 940657c5b0b4b7b40b633457f00fc9a0, type: 3}
-  m_Name: Level_01
+  m_Name: Level_04
   m_EditorClassIdentifier: 
-  artType: 0
+  artType: 3
   levelPiecesStart:
   - {fileID: 455799992205837753, guid: 6dcce02133f936448b0adeaef41d8c26, type: 3}
   levelPiecesEnd:

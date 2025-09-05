@@ -26,7 +26,7 @@ public class ItemCollectableBase : MonoBehaviour
         if(!transform.CompareTag(tagCoins))
         {
             gameObject.SetActive(false);
-            // Debug.Log("Object! BUMM!");
+            
         } else
         {
             OnCollected();

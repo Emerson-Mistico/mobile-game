@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 940657c5b0b4b7b40b633457f00fc9a0, type: 3}
-  m_Name: Level_01
+  m_Name: Level_00
   m_EditorClassIdentifier: 
   artType: 0
   levelPiecesStart:
@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 5035253879113405185, guid: dc0ec23c41837434792e0b99ba727251, type: 3}
   piecesNumberStart: 1
   piecesNumberEnd: 1
-  piecesNumber: 3
+  piecesNumber: 0

@@ -83,7 +83,6 @@ public class PlayerController : Singleton<PlayerController>
         }      
     }
     #region UTILS
-
     private void MoveBack() {
         transform.DOMoveZ(-2f, 0.3f).SetRelative();
     }
@@ -100,7 +99,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         _canRun = false;
         endGameScreen.SetActive(true);
-        animatorManager.PlayAnimation(animationType);
+        animatorManager.PlayAnimation(animationType);        
     }
     public void QuitGameNow()
     {

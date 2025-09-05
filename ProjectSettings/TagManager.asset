@@ -12,6 +12,8 @@ TagManager:
   - PowerUP Height
   - Power UP Collect Coins
   - Coin Collector
+  - Level Info
+  - Coin Info
   layers:
   - Default
   - TransparentFX

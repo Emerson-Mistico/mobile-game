@@ -2,8 +2,9 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Ebac.Core.Singleton;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
 
     [Header("Level Setup")]
@@ -13,6 +14,9 @@ public class LevelManager : MonoBehaviour
     public List<LevelPieceBaseSetup> levelPieceBaseSetups;
 
     public float timeToCreatePieces = 0.2f;
+
+    [Header("Level HUD")]
+    public SOInt actualLevelToShow;
 
     // privates
     [SerializeField] private int _levelIndex;
@@ -55,7 +59,7 @@ public class LevelManager : MonoBehaviour
 
         if (_currentLevel != null)
         {
-            _levelIndex++;
+            // _levelIndex++;
 
             if (_levelIndex >= levelPieceBaseSetups.Count) {
                 ResetLevelIndex();
@@ -79,7 +83,6 @@ public class LevelManager : MonoBehaviour
             CreateLevelPiece(_currSetup.levelPiecesEnd);            
         }
 
-        Debug.Log("Cheguei aqui -> " + _currSetup.artType);
         ColorManager.Instance.ChangeColorBytype(_currSetup.artType);
 
     }
@@ -113,17 +116,24 @@ public class LevelManager : MonoBehaviour
         }
 
         _spawnedPieces.Clear();
-    }    
+    } 
 
     private void Update()
     {
-        /* to teste some
+        
         if (Input.GetKeyUp(KeyCode.D))
         {
-            SpawnNextLevel();
-        }
-        */
-    }
+            _levelIndex++;
+            if (_levelIndex >= levelPieceBaseSetups.Count)
+            {
+                ResetLevelIndex();
+            }
 
+            CreateLevelPieces();
+        }
+
+        actualLevelToShow.value = _levelIndex;
+
+    }
 
 }
