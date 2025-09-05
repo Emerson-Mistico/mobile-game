@@ -79,6 +79,9 @@ public class LevelManager : MonoBehaviour
             CreateLevelPiece(_currSetup.levelPiecesEnd);            
         }
 
+        Debug.Log("Cheguei aqui -> " + _currSetup.artType);
+        ColorManager.Instance.ChangeColorBytype(_currSetup.artType);
+
     }
 
     private void CreateLevelPiece(List<LevelPieceBase> list)
@@ -103,7 +106,7 @@ public class LevelManager : MonoBehaviour
 
     private void CleanSpawnedPieces()
     {
-        Debug.Log(" -> chegou aqui. Há " + _spawnedPieces.Count + " peças para DESTRUIR.");
+        // Debug.Log(" -> chegou aqui. Há " + _spawnedPieces.Count + " peças para DESTRUIR.");
         for (int i = _spawnedPieces.Count -1;  i >= 0; i--)
         {
             Destroy(_spawnedPieces[i].gameObject);
