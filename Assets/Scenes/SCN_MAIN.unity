@@ -1820,14 +1820,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 97271ad08becdfe4c81689ac1acc0d07, type: 2}
   - {fileID: 2100000, guid: 2da590e4de319fc4fbc1a50205e3a7c1, type: 2}
   colorSetups:
-  - artType: 0
+  - artType: 1
     colors:
     - {r: 0.9811321, g: 0.9460248, b: 0.5784977, a: 0}
     - {r: 0.90588236, g: 0.07450979, b: 0.82206726, a: 0}
-  - artType: 1
+  - artType: 0
     colors:
     - {r: 0.100302614, g: 0.9245283, b: 0.8421058, a: 0}
     - {r: 0.07450977, g: 0.34268677, b: 0.93333334, a: 0}
+  - artType: 2
+    colors:
+    - {r: 0.25872195, g: 0.9622642, b: 0.42256865, a: 0}
+    - {r: 0.93333334, g: 0.07450977, b: 0.121101566, a: 0}
 --- !u!1 &935359636
 GameObject:
   m_ObjectHideFlags: 0
