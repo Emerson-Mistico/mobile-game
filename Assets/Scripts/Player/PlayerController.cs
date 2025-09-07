@@ -35,6 +35,10 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Coin Setup")]
     public GameObject coinCollector;
 
+    [Header("Menu Setup")]
+    public GameObject buttonReset;
+    public GameObject buttonNextLevel;
+
     // privates
     private Vector3 _position;
     private bool _canRun;
@@ -77,6 +81,9 @@ public class PlayerController : Singleton<PlayerController>
         {
             SetPowerUpText(messageTryAgain);
             _currentLevelNumber = 0;
+
+            buttonReset.SetActive(true);
+
             MoveBack();
             EndGame(_currentLevelNumber, 1, AnimatorManager.AnimationType.DEAD);
         }
@@ -87,12 +94,19 @@ public class PlayerController : Singleton<PlayerController>
         if (other.transform.tag == tagTocheckEndLine)
         {
             SetPowerUpText(messageNextLevel);
+
             _currentLevelNumber++;
-            if (_currentLevelNumber > PlayerPrefs.GetInt("LevelMax"))
+
+            if (_currentLevelNumber >= PlayerPrefs.GetInt("LevelMax"))
             {
                 _currentLevelNumber = 0;
                 SetPowerUpText(messageEndGame);
-            }
+                buttonReset.SetActive(true);
+            } else
+            {
+                buttonNextLevel.SetActive(true);
+            }                
+
             EndGame(_currentLevelNumber, 0);
         }      
     }
@@ -116,8 +130,6 @@ public class PlayerController : Singleton<PlayerController>
         animatorManager.PlayAnimation(animationType);
         PlayerPrefs.SetInt("ActualLevelNumber", levelToUpdate);
         PlayerPrefs.SetInt("LevelRestart", levelRestart);
-        Debug.Log("Level agora é: " + levelToUpdate);
-
     }
     public void QuitGameNow()
     {

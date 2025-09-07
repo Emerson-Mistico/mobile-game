@@ -29,7 +29,6 @@ public class LevelManager : Singleton<LevelManager>
     {
         PlayerPrefs.SetInt("LevelMax", levelPieceBaseSetups.Count);
         _levelIndex = PlayerPrefs.GetInt("ActualLevelNumber");        
-        //Debug.Log("Awake -> Level Index = " + _levelIndex);
     }
 
     private void Start()
@@ -72,10 +71,6 @@ public class LevelManager : Singleton<LevelManager>
                 ResetLevelIndex();
             } 
         }*/
-
-        // _levelIndex = PlayerPrefs.GetInt("ActualLevel");
-
-        Debug.Log("Nível atual: " + indexLevelToCreate + " e Prefs: " + PlayerPrefs.GetInt("ActualLevelNumber"));
 
         _currSetup = levelPieceBaseSetups[indexLevelToCreate];
 
@@ -120,7 +115,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CleanSpawnedPieces()
     {
-        // Debug.Log(" -> chegou aqui. Há " + _spawnedPieces.Count + " peças para DESTRUIR.");
+
         for (int i = _spawnedPieces.Count -1;  i >= 0; i--)
         {
             Destroy(_spawnedPieces[i].gameObject);

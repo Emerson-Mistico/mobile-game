@@ -1554,6 +1554,7 @@ MonoBehaviour:
   messageStartGame: Are You Ready?
   messageNextLevel: Congratulations!
   messageTryAgain: Oh No! Try again?
+  messageEndGame: END GAME. YOU WIN!
   startGameScreen: {fileID: 765501515}
   endGameScreen: {fileID: 413432137}
   hudShowCoins: {fileID: 1863243682}
@@ -1561,6 +1562,8 @@ MonoBehaviour:
   target: {fileID: 744750073}
   lerpSpeed: 7.5
   coinCollector: {fileID: 443246291}
+  buttonReset: {fileID: 1398675898}
+  buttonNextLevel: {fileID: 88087141}
 --- !u!65 &538199789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1627,7 +1630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCoins: {fileID: 11400000, guid: c3e0225c782956e47ae148f005864b01, type: 2}
-  initialCoins: 0
 --- !u!1 &720721498
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ab2aae037add242865cfe9dbba2175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialCoins: 0
 --- !u!1 &1212637450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,7 +3230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1398675899
 RectTransform:
   m_ObjectHideFlags: 0

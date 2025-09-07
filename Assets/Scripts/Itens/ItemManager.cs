@@ -9,23 +9,15 @@ public class ItemManager : Singleton<ItemManager>
     [Header("Itens Collectable Setup")]
     public SOInt itemCoins;
 
-    [Header("Player Item Init Setup")]
-    public int initialCoins = 0;
-
     private void Start()
     {
-        ResetItens();
-    }
-
-    private void ResetItens()
-    {
-        itemCoins.value = initialCoins;
+        itemCoins.value = PlayerPrefs.GetInt("Totalcoins");
     }
 
     public void AddItemCoins(int amountCoins) {
 
         itemCoins.value += amountCoins;
-
+        PlayerPrefs.SetInt("Totalcoins", itemCoins.value);
     }
 
 }
