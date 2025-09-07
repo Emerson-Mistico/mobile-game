@@ -8,7 +8,6 @@ public class ItemManager : Singleton<ItemManager>
 {
     [Header("Itens Collectable Setup")]
     public SOInt itemCoins;
-
     private void Start()
     {
         itemCoins.value = PlayerPrefs.GetInt("Totalcoins");

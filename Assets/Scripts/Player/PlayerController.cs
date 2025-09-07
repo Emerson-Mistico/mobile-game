@@ -99,15 +99,19 @@ public class PlayerController : Singleton<PlayerController>
 
             if (_currentLevelNumber >= PlayerPrefs.GetInt("LevelMax"))
             {
-                _currentLevelNumber = 0;
                 SetPowerUpText(messageEndGame);
-                buttonReset.SetActive(true);
+                
+                _currentLevelNumber = 0;
+                
+                buttonNextLevel.SetActive(false);
+                buttonReset.SetActive(true);                
+                
+                EndGame(_currentLevelNumber, 1);
             } else
             {
                 buttonNextLevel.SetActive(true);
-            }                
-
-            EndGame(_currentLevelNumber, 0);
+                EndGame(_currentLevelNumber, 0);
+            }                            
         }      
     }
     #region UTILS

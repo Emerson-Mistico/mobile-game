@@ -5,6 +5,7 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Player Item Init Setup")]
     public int initialCoins = 0;
+    public SOInt itemCoins;
 
     private void Awake()
     {
@@ -12,6 +13,7 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerPrefs.SetInt("ActualLevelNumber", 0);
             PlayerPrefs.SetInt("Totalcoins", initialCoins);
+            itemCoins.value = initialCoins;
         }        
     }
 }
