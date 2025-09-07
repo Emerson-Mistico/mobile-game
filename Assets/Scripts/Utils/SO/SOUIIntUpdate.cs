@@ -29,6 +29,8 @@ public class SOUIIntUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _tagToCompare = objectInfo.transform.tag;
+
         if (_tagToCompare == "Level Info")
         {
             uiTextValue.text = "Level: " + soInt.value.ToString();

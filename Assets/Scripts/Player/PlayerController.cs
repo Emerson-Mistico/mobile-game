@@ -19,6 +19,9 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Screen")]
     public string messageStartGame = "Are You Ready?";
+    public string messageNextLevel = "Congratulations!";
+    public string messageTryAgain = "Oh No! Try again?";
+    public string messageEndGame = "END GAME. YOU WIN!";
     public GameObject startGameScreen;
     public GameObject endGameScreen;
     public GameObject hudShowCoins;
@@ -39,6 +42,8 @@ public class PlayerController : Singleton<PlayerController>
     private Vector3 _startPosition;
     private float _baseSpeedAnimation = 7;
 
+    private int _currentLevelNumber;
+
     void Start()
     {
         _canRun = false;
@@ -50,6 +55,7 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
+        _currentLevelNumber = PlayerPrefs.GetInt("ActualLevelNumber");
 
         if (!_canRun)
         {
@@ -69,17 +75,25 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!invencible && collision.gameObject.tag == tagToCheckBarrier) 
         {
+            SetPowerUpText(messageTryAgain);
+            _currentLevelNumber = 0;
             MoveBack();
-            EndGame(AnimatorManager.AnimationType.DEAD);
+            EndGame(_currentLevelNumber, 1, AnimatorManager.AnimationType.DEAD);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("Trigger detected: " + other.transform.tag);
         if (other.transform.tag == tagTocheckEndLine)
         {
-            EndGame();
+            SetPowerUpText(messageNextLevel);
+            _currentLevelNumber++;
+            if (_currentLevelNumber > PlayerPrefs.GetInt("LevelMax"))
+            {
+                _currentLevelNumber = 0;
+                SetPowerUpText(messageEndGame);
+            }
+            EndGame(_currentLevelNumber, 0);
         }      
     }
     #region UTILS
@@ -95,11 +109,15 @@ public class PlayerController : Singleton<PlayerController>
         hudShowCoins.SetActive(true);
         animatorManager.PlayAnimation(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedAnimation);
     }
-    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
-    {
+    private void EndGame(int levelToUpdate, int levelRestart, AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
+    {        
         _canRun = false;
         endGameScreen.SetActive(true);
-        animatorManager.PlayAnimation(animationType);        
+        animatorManager.PlayAnimation(animationType);
+        PlayerPrefs.SetInt("ActualLevelNumber", levelToUpdate);
+        PlayerPrefs.SetInt("LevelRestart", levelRestart);
+        Debug.Log("Level agora é: " + levelToUpdate);
+
     }
     public void QuitGameNow()
     {

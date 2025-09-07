@@ -20,18 +20,25 @@ public class LevelManager : Singleton<LevelManager>
 
     // privates
     [SerializeField] private int _levelIndex;
-    private GameObject _currentLevel;
+    //private GameObject _currentLevel;
 
     private List<LevelPieceBase> _spawnedPieces = new List<LevelPieceBase>();
     private LevelPieceBaseSetup _currSetup;
 
     private void Awake()
     {
-        CreateLevelPieces();
+        PlayerPrefs.SetInt("LevelMax", levelPieceBaseSetups.Count);
+        _levelIndex = PlayerPrefs.GetInt("ActualLevelNumber");        
+        //Debug.Log("Awake -> Level Index = " + _levelIndex);
+    }
+
+    private void Start()
+    {
+        CreateLevelPieces(_levelIndex);
         // SpawnNextLevel();
     }
 
-    private void SpawnNextLevel()
+    /*private void SpawnNextLevel()
     {
         if (_currentLevel != null)
         {
@@ -47,26 +54,30 @@ public class LevelManager : Singleton<LevelManager>
         _currentLevel = Instantiate(levelList[_levelIndex], container);
         _currentLevel.transform.localPosition = Vector3.zero;
     }
+    */
 
     private void ResetLevelIndex()
     {
         _levelIndex = 0;
+        PlayerPrefs.SetInt("ActualLevelNumber", _levelIndex);
     }
 
-    private void CreateLevelPieces()
+    private void CreateLevelPieces(int indexLevelToCreate)
     {       
-        CleanSpawnedPieces();
-
+        CleanSpawnedPieces();        
+        /*
         if (_currentLevel != null)
-        {
-            // _levelIndex++;
-
+        {           
             if (_levelIndex >= levelPieceBaseSetups.Count) {
                 ResetLevelIndex();
-            }
-        }
+            } 
+        }*/
 
-        _currSetup = levelPieceBaseSetups[_levelIndex];
+        // _levelIndex = PlayerPrefs.GetInt("ActualLevel");
+
+        Debug.Log("Nível atual: " + indexLevelToCreate + " e Prefs: " + PlayerPrefs.GetInt("ActualLevelNumber"));
+
+        _currSetup = levelPieceBaseSetups[indexLevelToCreate];
 
         for (int i = 0; i < _currSetup.piecesNumberStart; i++)
         {
@@ -120,17 +131,22 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Update()
     {
-        
+        _levelIndex = PlayerPrefs.GetInt("ActualLevelNumber");
+
         if (Input.GetKeyUp(KeyCode.D))
         {
             _levelIndex++;
+            PlayerPrefs.SetInt("ActualLevelNumber", _levelIndex);
+
             if (_levelIndex >= levelPieceBaseSetups.Count)
             {
                 ResetLevelIndex();
             }
 
-            CreateLevelPieces();
+            CreateLevelPieces(_levelIndex);
         }
+
+        _levelIndex = PlayerPrefs.GetInt("ActualLevelNumber");
 
         actualLevelToShow.value = _levelIndex;
 
