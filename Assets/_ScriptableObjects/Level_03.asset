@@ -23,6 +23,8 @@ MonoBehaviour:
   - {fileID: 4017229846807140462, guid: f58c4106ba0df964499a3202b9e9003c, type: 3}
   - {fileID: 2471617166953477431, guid: 2419553bcfb189546bc60e18ec3dae7f, type: 3}
   - {fileID: 5035253879113405185, guid: dc0ec23c41837434792e0b99ba727251, type: 3}
+  - {fileID: 5035253879113405185, guid: 76b65047a7a92f54f9e63db318a331bd, type: 3}
+  - {fileID: 5035253879113405185, guid: e7dda71d8b428ef4a9b0fddf0aa6236a, type: 3}
   piecesNumberStart: 1
   piecesNumberEnd: 1
   piecesNumber: 3
