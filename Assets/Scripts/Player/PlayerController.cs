@@ -1,7 +1,11 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 using Ebac.Core.Singleton;
 using DG.Tweening;
 using TMPro;
+
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -11,6 +15,7 @@ public class PlayerController : Singleton<PlayerController>
     public float fowardSpeed = 3.5f;
     public string tagToCheckBarrier = "Barrier";
     public string tagTocheckEndLine = "EndLine";
+    public GameObject playerToShow;
 
     [Header("Animation Manager")]
     public AnimatorManager animatorManager;
@@ -54,7 +59,8 @@ public class PlayerController : Singleton<PlayerController>
         _startPosition = transform.position;
         startGameScreen.SetActive(true);
         SetPowerUpText(messageStartGame);
-        ResetSpeed();        
+        ResetSpeed();
+        ShowPlayer(false,false);
     }
 
     void Update()
@@ -75,6 +81,7 @@ public class PlayerController : Singleton<PlayerController>
 
     }
 
+    #region COLLISIONS
     private void OnCollisionEnter(Collision collision)
     {
         if (!invencible && collision.gameObject.tag == tagToCheckBarrier) 
@@ -114,13 +121,34 @@ public class PlayerController : Singleton<PlayerController>
             }                            
         }      
     }
+    #endregion
+
     #region UTILS
+    
+    private void ShowPlayer(bool statusPlayer, bool animatePlayer)
+    {
+        playerToShow.SetActive(statusPlayer);
+
+        if (animatePlayer)
+        {
+            StartCoroutine(ScalePlayer(.3f, .5f, .3f));
+        }
+    }
+
+    IEnumerator ScalePlayer(float normalSize, float maximumSize, float timeToBounce)
+    {
+        playerToShow.transform.localScale = Vector3.zero;
+        playerToShow.transform.DOScale(normalSize, timeToBounce);
+        yield return null;        
+    }
+
     private void MoveBack() {
         transform.DOMoveZ(-2f, 0.3f).SetRelative();
     }
 
     public void StartToRun()
     {
+        ShowPlayer(true, true);
         _canRun = true;
         SetPowerUpText("");
         startGameScreen.SetActive(false);

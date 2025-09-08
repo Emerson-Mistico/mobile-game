@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using Ebac.Core.Singleton;
+using DG.Tweening;
 
 public class LevelManager : Singleton<LevelManager>
 {
