@@ -146,9 +146,12 @@ public class PlayerController : Singleton<PlayerController>
     }
     IEnumerator BouncePlayer(float normalSize, float timeToBounce)
     {
+        /*        
         playerToShow.transform.DOScale(normalSize * 1.2f, timeToBounce * 0.5f);
         yield return new WaitForSeconds(timeToBounce);
         playerToShow.transform.DOScale(normalSize, timeToBounce * 0.5f);
+        */
+        playerToShow.transform.DOScale(normalSize * 1.2f, timeToBounce * 0.7f).SetEase(ease).SetLoops(2, LoopType.Yoyo);
         yield return null;        
     }
 
