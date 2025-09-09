@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7849646136471500288}
   - component: {fileID: 2470403226584704696}
   - component: {fileID: 9159814807316870530}
+  - component: {fileID: 3460781257161372119}
   m_Layer: 0
   m_Name: PFB_Barrier
   m_TagString: Barrier
@@ -82,6 +83,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3460781257161372119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029670064472710413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9455892271735db409fc63ec308d26ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToBounce: {fileID: 7684055796152653502}
+  tagToCheckPlayer: Player
+  timeToBounce: 0.3
+  normalSize: 2.32
+  ease: 30
 --- !u!1 &7684055796152653502
 GameObject:
   m_ObjectHideFlags: 0

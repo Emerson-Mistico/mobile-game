@@ -89,12 +89,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!invencible && collision.gameObject.tag == tagToCheckBarrier) 
         {
+            
+            MoveBack();
             SetPowerUpText(messageTryAgain);
             _currentLevelNumber = 0;
-
             buttonReset.SetActive(true);
-
-            MoveBack();
             EndGame(_currentLevelNumber, 1, AnimatorManager.AnimationType.DEAD);
         }
     }
@@ -154,8 +153,6 @@ public class PlayerController : Singleton<PlayerController>
         playerToShow.transform.DOScale(normalSize * 1.2f, timeToBounce * 0.7f).SetEase(ease).SetLoops(2, LoopType.Yoyo);
         yield return null;        
     }
-
-
 
     private void MoveBack() {
         transform.DOMoveZ(-2f, 0.3f).SetRelative();
