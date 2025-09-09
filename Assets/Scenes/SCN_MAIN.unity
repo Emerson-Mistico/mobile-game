@@ -1550,6 +1550,9 @@ MonoBehaviour:
   tagToCheckBarrier: Barrier
   tagTocheckEndLine: EndLine
   playerToShow: {fileID: 691497287}
+  playerNormalSize: 0.3
+  playerTimeBounce: 0.3
+  ease: 30
   animatorManager: {fileID: 2144430184}
   invencible: 0
   messageStartGame: Are You Ready?

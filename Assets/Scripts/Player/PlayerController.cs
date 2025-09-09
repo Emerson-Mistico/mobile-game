@@ -16,6 +16,9 @@ public class PlayerController : Singleton<PlayerController>
     public string tagToCheckBarrier = "Barrier";
     public string tagTocheckEndLine = "EndLine";
     public GameObject playerToShow;
+    public float playerNormalSize = 0.3f;
+    public float playerTimeBounce = 0.3f;
+    public Ease ease = Ease.OutBounce;
 
     [Header("Animation Manager")]
     public AnimatorManager animatorManager;
@@ -131,16 +134,25 @@ public class PlayerController : Singleton<PlayerController>
 
         if (animatePlayer)
         {
-            StartCoroutine(ScalePlayer(.3f, .5f, .3f));
+            StartCoroutine(ScalePlayer(playerNormalSize, playerTimeBounce));
         }
     }
 
-    IEnumerator ScalePlayer(float normalSize, float maximumSize, float timeToBounce)
+    IEnumerator ScalePlayer(float normalSize, float timeToBounce)
     {
         playerToShow.transform.localScale = Vector3.zero;
-        playerToShow.transform.DOScale(normalSize, timeToBounce);
+        playerToShow.transform.DOScale(normalSize, timeToBounce).SetEase(ease);
         yield return null;        
     }
+    IEnumerator BouncePlayer(float normalSize, float timeToBounce)
+    {
+        playerToShow.transform.DOScale(normalSize * 1.2f, timeToBounce * 0.5f);
+        yield return new WaitForSeconds(timeToBounce);
+        playerToShow.transform.DOScale(normalSize, timeToBounce * 0.5f);
+        yield return null;        
+    }
+
+
 
     private void MoveBack() {
         transform.DOMoveZ(-2f, 0.3f).SetRelative();
@@ -182,23 +194,28 @@ public class PlayerController : Singleton<PlayerController>
         
     public void PowerUpSpeedUp(float amountSpeed)
     {
+        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         _currentSpeed = amountSpeed;
     }
     public void SetInvencible(bool canDie)
     {
+        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         invencible = canDie;
     }
     public void ChangeHeight(float amountToHigh, float timePowerUp, float animationDuration, Ease ease)
     {
+        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         transform.DOMoveY(_startPosition.y + amountToHigh, animationDuration).SetEase(ease);
         Invoke(nameof(ResetHeight), timePowerUp);
     }
     public void ResetHeight(float animationDuration)
     {
+        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         transform.DOMoveY(_startPosition.y, animationDuration);
     }
     public void ChangeCoinCollectorSize(float distanceSize)
     {
+        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         coinCollector.transform.localScale = Vector3.one * distanceSize;
     }
     #endregion
