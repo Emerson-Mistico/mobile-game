@@ -71,7 +71,8 @@ MonoBehaviour:
   tagCoins: Coin
   itemValue: 1
   graphicItem: {fileID: 0}
-  powerUpDuration: 10
+  powerUpDuration: 5
+  powerUpMaterial: {fileID: 2100000, guid: 030e84cf05c050241b571b93035e4d29, type: 2}
   amountToSpeed: 17
   messagePowerUP: 'You have: Speed!'
 --- !u!1 &4374812397909712663

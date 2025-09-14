@@ -71,8 +71,9 @@ MonoBehaviour:
   tagCoins: Coin
   itemValue: 1
   graphicItem: {fileID: 0}
-  powerUpDuration: 10
-  sizeAmount: 5
+  powerUpDuration: 4
+  powerUpMaterial: {fileID: 2100000, guid: 72e4d398d742b7845933905f552c1cb0, type: 2}
+  sizeAmount: 4
   messagePowerUP: Money, money, money, moooooney!
 --- !u!1 &4327669464988941054
 GameObject:

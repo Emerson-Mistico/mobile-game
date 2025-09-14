@@ -22,6 +22,7 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Animation Manager")]
     public AnimatorManager animatorManager;
+    public GameObject playerParticles;
 
     public bool invencible = false;
 
@@ -194,30 +195,36 @@ public class PlayerController : Singleton<PlayerController>
         
     public void PowerUpSpeedUp(float amountSpeed)
     {
-        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
+        // StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         _currentSpeed = amountSpeed;
     }
     public void SetInvencible(bool canDie)
     {
-        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
+        // StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         invencible = canDie;
     }
     public void ChangeHeight(float amountToHigh, float timePowerUp, float animationDuration, Ease ease)
     {
-        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
+        // StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         transform.DOMoveY(_startPosition.y + amountToHigh, animationDuration).SetEase(ease);
         Invoke(nameof(ResetHeight), timePowerUp);
     }
     public void ResetHeight(float animationDuration)
     {
-        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
-        transform.DOMoveY(_startPosition.y, animationDuration);
+        // StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
+        // transform.DOMoveY(_startPosition.y, animationDuration);
+        transform.DOMoveY(_startPosition.y, animationDuration).SetEase(ease);
     }
     public void ChangeCoinCollectorSize(float distanceSize)
     {
-        StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
+        // StartCoroutine(BouncePlayer(playerNormalSize, playerTimeBounce));
         coinCollector.transform.localScale = Vector3.one * distanceSize;
     }
+    public void ChangeParticlesColor(Color color)
+    {
+        playerParticles.GetComponent<Renderer>().material.color = color;
+    }
+
     #endregion
 
 }

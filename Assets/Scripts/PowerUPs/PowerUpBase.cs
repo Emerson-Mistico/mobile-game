@@ -6,6 +6,8 @@ public class PowerUpBase : ItemCollectableBase
 {
     [Header("Power Up")]
     public float powerUpDuration = 3.5f;
+    public Material powerUpMaterial;
+
     protected override void Collect()
     {
         base.Collect();
@@ -13,13 +15,14 @@ public class PowerUpBase : ItemCollectableBase
     }
     protected virtual void StartPowerUp()
     {
-        // Debug.Log("Start Power Up for " + powerUpDuration + " seconds.");
+        PlayerController.Instance.ChangeParticlesColor(powerUpMaterial.color);
+        PlayerController.Instance.playerParticles.SetActive(true);
         Invoke(nameof(EndPowerUp), powerUpDuration);
     }
     protected virtual void EndPowerUp()
     {
-        // Debug.Log("End Power Up: NOW!");
-        Destroy(base.gameObject);
+        PlayerController.Instance.playerParticles.SetActive(false);
+        Destroy(base.gameObject);        
     }
 
 }

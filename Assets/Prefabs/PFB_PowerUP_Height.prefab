@@ -179,8 +179,9 @@ MonoBehaviour:
   tagCoins: Coin
   itemValue: 1
   graphicItem: {fileID: 0}
-  powerUpDuration: 12
-  amountHeight: 7
+  powerUpDuration: 2
+  powerUpMaterial: {fileID: 2100000, guid: c7cc8a785179fff4f88c1b3374099f1d, type: 2}
+  amountHeight: 6
   animationDurationBegin: 1.5
   animationDurationEnd: 1.5
   messagePowerUP: 'You have: the HIGH GROUND!'

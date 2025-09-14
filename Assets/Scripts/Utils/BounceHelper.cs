@@ -16,7 +16,6 @@ public class BounceHelper : MonoBehaviour
     {
         if (collision.gameObject.tag == tagToCheckPlayer)
         {
-            Debug.Log("Opa! Player bateu aqui");
             objectToBounce.transform.DOScale(normalSize * 1.2f, timeToBounce * 0.7f).SetEase(ease).SetLoops(2, LoopType.Yoyo);
         }
     }

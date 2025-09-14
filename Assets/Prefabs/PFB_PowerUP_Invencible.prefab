@@ -71,7 +71,8 @@ MonoBehaviour:
   tagCoins: Coin
   itemValue: 1
   graphicItem: {fileID: 0}
-  powerUpDuration: 8
+  powerUpDuration: 5
+  powerUpMaterial: {fileID: 2100000, guid: bd69a887d4d33aa408b3853dec60498a, type: 2}
   messagePowerUP: 'You have: THE POWER!'
 --- !u!1 &6916725335412919589
 GameObject:
