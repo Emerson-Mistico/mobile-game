@@ -23,6 +23,7 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Animation Manager")]
     public AnimatorManager animatorManager;
     public GameObject playerParticles;
+    public ParticleSystem playerDeathAnimation;
 
     public bool invencible = false;
 
@@ -92,6 +93,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             
             MoveBack();
+            playerDeathAnimation.Play();
             SetPowerUpText(messageTryAgain);
             _currentLevelNumber = 0;
             buttonReset.SetActive(true);
