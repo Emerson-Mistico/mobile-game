@@ -9,22 +9,14 @@ Artwork: artwork provided by the educational institution for use in the developm
 
 # Features
 
-In development:
-- Game menus
 - Classic "runner 3D" movements.
 - Item collection
 - Level changing
-- Score recorder
-- Credits screen
-- Localization (Pt-Br, Eng-USA, ITA)
-
+  
 # Acknowledgements
 This project was developed as a task for the Unity course at E.B.A.C.  I would like to express my gratitude to the instructors and classmates for their support and guidance throughout the development process.
 
 Good luck and have fun!
-
-
-
 
 -------------------------
 
@@ -39,14 +31,9 @@ Artwork: le grafiche sono fornite dall'istituzione educativa per l'utilizzo nell
 
 # Caratteristiche
 
-In fase di sviluppo:
-- Menu di gioco
 - Movimenti classici dei giochi "runner 3D"
 - Raccolta di oggetti
 - Cambio di livelli
-- Registratore del punteggio
-- Schermata dei crediti
-- Localizzazione (Pt-Br, Eng-USA, ITA)
 
 # Ringraziamenti
 Questo progetto è stato sviluppato come compito per il corso di Unity presso E.B.A.C. Desidero esprimere la mia gratitudine agli insegnanti e ai compagni di classe per il loro supporto e orientamento durante l'intero processo di sviluppo.
